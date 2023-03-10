@@ -1,0 +1,1 @@
+export const DARK_MODE_KEY = "NEXT_BLOG"

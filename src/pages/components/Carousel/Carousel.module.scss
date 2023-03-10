@@ -1,0 +1,33 @@
+.carousel {
+  max-width: 100%;
+  .slick-track {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+  }
+  .slick-slide > div {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+  .slick-slider {
+    position: relative;
+    padding-top: 130px;
+    overflow: hidden;
+  }
+  .slick-prev {
+    position: absolute;
+    right: 100px;
+    top: 0;
+    cursor: pointer;
+  }
+  .slick-next {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    cursor: pointer;
+  }
+}
