@@ -4,10 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      {/* <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script> */}
       <script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5749665502208213"

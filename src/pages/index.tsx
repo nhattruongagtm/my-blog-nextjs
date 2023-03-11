@@ -22,7 +22,9 @@ export default function Home() {
             <code className={styles.code}>src/pages/index.tsx</code>
           </p>
           <Link href="/shop">
-            <h1 className="text-3xl font-bold underline text-gray-100">Go to my Shop</h1>
+            <h1 className="text-3xl font-bold underline text-gray-100">
+              Go to my Shop
+            </h1>
           </Link>
           <div>
             <a
