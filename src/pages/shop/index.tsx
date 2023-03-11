@@ -1,7 +1,7 @@
 import useDemoQuery from "@/app/hooks/useDemoQuery";
-import BrandList from "../components/Brand/BrandList";
-import Category from "../components/Category/Category";
-import ProductList from "../components/Product/ProductList";
+import BrandList from "../../app/components/Brand/BrandList";
+import Category from "../../app/components/Category/Category";
+import ProductList from "../../app/components/Product/ProductList";
 type Props = {};
 
 const Shop = (props: Props) => {

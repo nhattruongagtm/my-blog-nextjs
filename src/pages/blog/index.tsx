@@ -1,4 +1,4 @@
-import GoogleAd from "../components/Ads/GoogleAd";
+import GoogleAd from "../../app/components/Ads/GoogleAd";
 
 type Props = {};
 

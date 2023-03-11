@@ -1,4 +1,4 @@
-import { Category } from "../components/Category/interfaces";
+import { Category } from "../../app/components/Category/interfaces";
 
 export const dummnyBrands: Category[] = [
   {

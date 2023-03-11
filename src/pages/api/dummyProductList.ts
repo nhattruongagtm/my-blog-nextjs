@@ -1,4 +1,4 @@
-import { Product } from "../components/Product/interfaces";
+import { Product } from "../../app/components/Product/interfaces";
 
 export const dummyProductList: Product[] = [
   {
