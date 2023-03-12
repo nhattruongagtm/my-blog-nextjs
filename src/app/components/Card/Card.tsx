@@ -8,7 +8,7 @@ type ProductProps = {
 
 const Card = ({ product: { link, name, thumbnail } }: ProductProps) => {
   return (
-    <div className="sm:p-5 p-4 sm:h-[300px] rounded-xl hover:border-gray-100 hover:shadow-lg bg-white dark:bg-card-dark h-fit dark:text-card-text-dark border dark:border-border-dark hover:cursor-pointer dark:hover:border-border-dark-h hover:transition-all hover:-mt-0.5 flex-col justify-between">
+    <div className="sm:p-5 p-4 sm:h-[300px] rounded-xl hover:border-gray-100 hover:shadow-lg bg-white dark:bg-card-dark h-fit dark:text-card-text-dark border dark:border-border-dark hover:cursor-pointer dark:hover:border-border-dark-h hover:transition-all hover:-mt-0.5 flex-col justify-between w-full">
       <div className="card-media w-full md:h-2/3 h-1/2 overflow-hidden rounded-lg mb-0.5 flex items-center">
         <Image
           width={450}

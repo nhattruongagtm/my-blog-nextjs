@@ -1,7 +1,6 @@
-import GoogleAd from "@/app/components/Ads/GoogleAd";
 import HomeBanner from "@/app/components/Banner/HomeBanner";
-import Markdown from "@/app/components/Markdown/Markdown";
-import NewestPosts from "@/app/components/Posts/NewestPosts";
+import RecentPosts from "@/app/components/Posts/RecentPosts";
+import TopPosts from "@/app/components/Posts/TopPosts";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -42,9 +41,10 @@ const Blog = ({ posts }: Props) => {
     //     />
     //   </div> */}
     // </div>
-    <div className="blog-home w-2/3 m-auto">
+    <div className="blog-home  w-full lg:w-3/4 m-auto ">
       <HomeBanner />
-      <NewestPosts />
+      <TopPosts />
+      <RecentPosts />
     </div>
   );
 };

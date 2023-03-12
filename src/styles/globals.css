@@ -31,7 +31,13 @@ a {
 
 @layer components {
   .btn-gradient {
-    @apply bg-blue-light rounded-lg p-1;
+    @apply px-7 py-0.5 rounded-lg bg-gradient-to-r from-blue-light to-cyan text-white focus:right-1 focus:ring ring-offset-blue-100;
+  }
+  .tag {
+    @apply py-[5px] px-[15px] rounded-full dark:bg-tag bg-gray-200 mb-[10px] w-fit text-[12px] font-semibold;
+  }
+  .title{
+    @apply text-[20px] mb-[5px] line-clamp-2
   }
 }
 @layer base {

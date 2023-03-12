@@ -25,6 +25,7 @@ module.exports = {
       "card-text-dark": "#63868D",
       "text-dark": "#7E92B1",
       "gray-light": "#222f43",
+      tag: "#122f42",
       "blue-light": "#1fb6ff",
       cyan: "#03c9d5",
       transparent: "transparent",

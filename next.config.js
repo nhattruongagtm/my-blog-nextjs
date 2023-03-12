@@ -3,10 +3,20 @@ const withImages = require("next-images");
 
 // /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    fontLoaders: [
+      { loader: "next/font/google", options: { subsets: ["latin"] } },
+    ],
+  },
   reactStrictMode: true,
   fs: false,
   images: {
-    domains: ["cf.shopee.sg", "images.unsplash.com","media.istockphoto.com"],
+    domains: [
+      "cf.shopee.sg",
+      "images.unsplash.com",
+      "media.istockphoto.com",
+      "plus.unsplash.com",
+    ],
   },
   compiler: {
     styledComponents: true,

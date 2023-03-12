@@ -1,9 +1,11 @@
-import { dummnyCategories } from "@/pages/api/dummyCategoryList";
-import Image from "next/image";
 import Carousel from "@/app/components/Carousel/Carousel";
 import CategoryItem from "@/app/components/Category/CategoryItem";
+import useResponsive from "@/app/hooks/useResponsive";
+import { dummnyCategories } from "@/pages/api/dummyCategoryList";
+import Image from "next/image";
 
 const HomeBanner = () => {
+  const { isMobile } = useResponsive();
   return (
     <div className="banner-main">
       <div className="w-full h-[400px flex justify-between items-center py-[40px]">
@@ -16,6 +18,15 @@ const HomeBanner = () => {
             doloremque neque rem ipsa sint autem tempore beatae ab, sapiente sed
             laudantium! Assumenda, nemo.
           </p>
+          <form className="subscribe p-0.5 rounded-lg flex my-2 gap-1 items-center dark:bg-border-dark-h w-fit bg-gray-200">
+            <input
+              type="text"
+              className=" outline-none dark:text-white text-black bg-transparent border-none focus:ring-none ring-0 focus:ring-0"
+            />
+            <button type="submit" className="btn-gradient">
+              Subscribe
+            </button>
+          </form>
         </div>
         <div className="image overflow-hidden max-w-[50%] flex items-center rounded-full">
           <Image
@@ -36,7 +47,7 @@ const HomeBanner = () => {
               reviews and Food guide...
             </p>
           </div>
-          <Carousel arrows>
+          <Carousel arrows slidesToShow={isMobile ? 3 : 6}>
             {dummnyCategories.map((item, index) => (
               <CategoryItem key={`category-${index}`} category={item} />
             ))}

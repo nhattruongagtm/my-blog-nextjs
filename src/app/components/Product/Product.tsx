@@ -47,7 +47,7 @@ const Product = ({ product: { link, name, thumbnail } }: ProductProps) => {
           <p className="text-vsm2">25 April 2022</p>
           </div>
         </div> */}
-        <Link href={link}>
+        <Link href={link} className="">
           <button className="border card-buy hover:shadow-lg text-vsm hover:bg-blue-light hover:text-white hover:transition-all py-[5px] px-1.5 rounded-full">
             Mua ngay
           </button>
