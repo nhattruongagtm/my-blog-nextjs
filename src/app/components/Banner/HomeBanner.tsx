@@ -21,14 +21,14 @@ const HomeBanner = () => {
           <form className="subscribe p-0.5 rounded-lg flex my-2 gap-1 items-center dark:bg-border-dark-h w-fit bg-gray-200">
             <input
               type="text"
-              className=" outline-none dark:text-white text-black bg-transparent border-none focus:ring-none ring-0 focus:ring-0"
+              className="w-[60%] outline-none dark:text-white text-black bg-transparent border-none focus:ring-none ring-0 focus:ring-0"
             />
             <button type="submit" className="btn-gradient">
               Subscribe
             </button>
           </form>
         </div>
-        <div className="image overflow-hidden max-w-[50%] flex items-center rounded-full">
+        <div className="lg:block hidden image overflow-hidden max-w-[50%] items-center rounded-full">
           <Image
             width={500}
             height={500}
@@ -41,7 +41,7 @@ const HomeBanner = () => {
       <div className="flex-col w-full m-auto h-full">
         <div className="category lg:flex items-center p-4 border dark:border-border-dark rounded-lg dark:bg-card-dark justify-between shadow-md">
           <div className="category-info w-48 h-full">
-            <p className="text-lg mb-1">Hot topics</p>
+            <p className="text-[25px] mb-1 font-[500]">Hot topics</p>
             <p className="text-vsm mb-1">
               Don&rsquo;t miss out on the latest news about Travel tips, Hotel
               reviews and Food guide...
