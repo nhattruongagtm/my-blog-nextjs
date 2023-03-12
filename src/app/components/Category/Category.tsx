@@ -1,6 +1,6 @@
 import useResponsive from "@/app/hooks/useResponsive";
 import { dummnyCategories } from "@/pages/api/dummyCategoryList";
-import Carousel from "../Carousel/Carousel";
+import Carousel from "@/app/components/Carousel/Carousel";
 import CategoryItem from "./CategoryItem";
 
 const Category = () => {
@@ -15,7 +15,7 @@ const Category = () => {
             reviews and Food guide...
           </p>
         </div>
-        <Carousel slidesToShow={isMobile ? 3 : 6}>
+        <Carousel slidesToShow={isMobile ? 3 : 6} arrows>
           {dummnyCategories.map((item, index) => (
             <CategoryItem key={`category-${index}`} category={item} />
           ))}

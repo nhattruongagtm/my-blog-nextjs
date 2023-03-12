@@ -9,6 +9,7 @@ type CarouselProps = {
   autoPlaySpeed?: number;
   type?: "category" | "brand";
   slidesToShow?: number;
+  arrows?: boolean;
 };
 
 const StyledCarousel = styled.div`
@@ -81,6 +82,7 @@ const Carousel = ({
   autoPlaySpeed,
   type = "category",
   slidesToShow,
+  arrows,
 }: CarouselProps) => {
   const { isMobile } = useResponsive();
   const settings: Settings = {
@@ -102,7 +104,7 @@ const Carousel = ({
         <RightArrow />
       </ArrowIconButton>
     ),
-    arrows: !isMobile,
+    arrows: (arrows && !isMobile) ? true :false,
   };
 
   return (

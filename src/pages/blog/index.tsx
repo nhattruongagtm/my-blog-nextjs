@@ -1,47 +1,74 @@
-import GoogleAd from "../../app/components/Ads/GoogleAd";
+import GoogleAd from "@/app/components/Ads/GoogleAd";
+import HomeBanner from "@/app/components/Banner/HomeBanner";
+import Markdown from "@/app/components/Markdown/Markdown";
+import NewestPosts from "@/app/components/Posts/NewestPosts";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+type Props = {
+  posts: {
+    slug: string;
+    frontmatter: any;
+    content: string;
+  }[];
+};
+// const markdownContent = readFileSync('./react-markdown.md', 'utf-8')
 
-type Props = {};
+const Blog = ({ posts }: Props) => {
+  const { content, frontmatter, slug } = posts[0];
 
-const Blog = (props: Props) => {
   return (
-    <div className="text-xl text-white h-full bg-card-text-dark">
-      Paragraph Writing Guide: Type of Paragraphs, Format to Write a Paragraph,
-      How to Write a Great Paragraph? List of Paragraph Writing Topics with
-      Examples February 15, 2023 by Veerendra Paragraph Writing: Students &
-      Writers mostly look for some questions when coming to paragraph writing
-      about any topic or thing or person. The questions raised by most of the
-      students while thinking about writing a paragraph are Paragraph Writing
-      Examples, What is the perfect paragraph format? How many steps involved to
-      write a paragraph? How to write a good paragraph? How many sentences are
-      included in a para? and many more like these. By keeping all these
-      questions in our mind today we have come up with a new topic called “A
-      Guide on Paragraph Writing”. With this guide, we’ll try to answer all
-      these questions about paragraph writing. Paragraphs act as the main role
-      in a student’s life. While writing any topic in an exam or competition
-      needs paras to explain the concept in an understandable way for the
-      readers. For grabbing the attention of readers, it’s compulsory to write a
-      succinct paragraph by including all the elements. So, to make it easy and
-      simple to understand by the students, let’s start learning more about
-      paragraph writing skills by referring below modules.F
-      <GoogleAd
-        googleAdId="ca-pub-5749665502208213"
-        slot="2268403632"
-        timeout={0}
-      />
-      <div className="mb-10"></div>
-      <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-      necessitatibus fugit eveniet mollitia perferendis perspiciatis iste, modi
-      omnis, iure consequuntur sed quibusdam? Quisquam, iste voluptas rem esse
-      quam cum numquam!
-      <GoogleAd
-        googleAdId="ca-pub-5749665502208213"
-        slot="4766311139"
-        timeout={0}
-        format="fluid"
-        layout="in-article"
-      />
+    // <div className="text-xl text-white h-full w-full m-auto flex-col gap-2">
+    //   <div className="ads-left bg-blue-light flex justify-center">
+    //     {/* <GoogleAd
+    //       googleAdId="ca-pub-5749665502208213"
+    //       slot="2268403632"
+    //       timeout={0}
+    //       style={{ height: "100px", display: "block" }}
+    //     /> */}
+    //   </div>
+
+    //   <div className="md-content w-1/2 m-auto">
+    //     <Markdown>{content}</Markdown>
+    //   </div>
+
+    //   {/* <div className="ads-right bg-card-text-dark h-[500px] w-[260px] fixed right-0">
+    //     <GoogleAd
+    //       googleAdId="ca-pub-5749665502208213"
+    //       slot="4766311139"
+    //       timeout={0}
+    //       format="fluid"
+    //       layout="in-article"
+    //     />
+    //   </div> */}
+    // </div>
+    <div className="blog-home w-2/3 m-auto">
+      <HomeBanner />
+      <NewestPosts />
     </div>
   );
 };
 
 export default Blog;
+
+export async function getStaticProps() {
+  // Get all our posts
+  const dirPath = path.join(process.cwd(), "src/pages/blog/posts");
+  const files = fs.readdirSync(dirPath);
+
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+    const readFile = fs.readFileSync(`${dirPath}/${fileName}`, "utf-8");
+    const { data: frontmatter, content } = matter(readFile);
+
+    return {
+      slug,
+      frontmatter,
+      content,
+    };
+  });
+
+  return {
+    props: { posts: posts },
+  };
+}

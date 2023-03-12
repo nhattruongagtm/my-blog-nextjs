@@ -29,3 +29,25 @@ a {
   text-decoration: none;
 }
 
+@layer components {
+  .btn-gradient {
+    @apply bg-blue-light rounded-lg p-1;
+  }
+}
+@layer base {
+  h1 {
+    @apply text-black;
+  }
+  h2 {
+    @apply text-black;
+  }
+}
+
+@layer utilities {
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+}
