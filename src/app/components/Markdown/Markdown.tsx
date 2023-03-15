@@ -9,42 +9,73 @@ import Pre from "@/app/components/Prev/Pre";
 import { IMarkdownProps } from "./interfaces";
 import styled from "styled-components";
 import remarkToc from "remark-toc";
+import useResponsive from "@/app/hooks/useResponsive";
 
-const Markdown = ({ children, width }: IMarkdownProps) => (
-  <MarkdownContainer>
-    <ReactMarkdown
-      components={{
-        code({ inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || "");
+const Markdown = ({ children, width }: IMarkdownProps) => {
+  const { isMobile } = useResponsive();
 
-          return !inline && match ? (
-            <SyntaxHighlighter
-              language={match[1]}
-              PreTag={Pre}
-              style={atomDark}
-              customStyle={{ position: "relative", overflow: "auto" }}
-            >
-              {String(children).replace(/\n$/, "")}
-            </SyntaxHighlighter>
-          ) : (
-            <pre>
-              <code className={className} {...props}>
-                {children}
-              </code>
-            </pre>
-          );
-        },
-        h1: ({ children }) => <h1>{children}</h1>,
-        h2: ({ children }) => <h2>{children}</h2>,
-        h3: ({ children }) => <h3 className="gradient">{children}</h3>,
-      }}
-      remarkPlugins={[remarkGfm, remarkHint, remarkToc]}
-      rehypePlugins={[rehypeRaw]}
-    >
-      {children}
-    </ReactMarkdown>
-  </MarkdownContainer>
-);
+  return (
+    <MarkdownContainer>
+      <ReactMarkdown
+        components={{
+          code({ inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || "");
+
+            return !inline && match ? (
+              <SyntaxHighlighter
+                language={match[1]}
+                PreTag={Pre}
+                style={atomDark}
+                customStyle={{ position: "relative", overflow: "auto" }}
+              >
+                {String(children).replace(/\n$/, "")}
+              </SyntaxHighlighter>
+            ) : (
+              <pre>
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              </pre>
+            );
+          },
+          h1: ({ children }) => (
+            <>
+              {isMobile ? (
+                <h2 className="gradient">{children}</h2>
+              ) : (
+                <h1 className="gradient">{children}</h1>
+              )}
+            </>
+          ),
+          h2: ({ children }) => <h2>{children}</h2>,
+          h3: ({ children }) => (
+            <>
+              {isMobile ? (
+                <h4 className="gradient">{children}</h4>
+              ) : (
+                <h3 className="gradient">{children}</h3>
+              )}
+            </>
+          ),
+          p: ({ children }) => (
+            <p className={`${isMobile ? "text-[18px]" : ""}`}>
+              {children}
+            </p>
+          ),
+          li: ({ children }) => (
+            <li className={`${isMobile ? "text-[18px]" : ""}`}>
+              {children}
+            </li>
+          ),
+        }}
+        remarkPlugins={[remarkGfm, remarkHint, remarkToc]}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {children}
+      </ReactMarkdown>
+    </MarkdownContainer>
+  );
+};
 
 export default Markdown;
 
