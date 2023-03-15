@@ -17,7 +17,7 @@ const BlogHeader = ({ frontmatter }: BlogHeaderProps) => {
       <div className="blog-title">
         <GradientText fontSize={10}>{title}</GradientText>
       </div>
-      <div className="info flex md:gap-16  gap-1 text-md text-gray-500">
+      <div className="info flex md:gap-16  gap-1 text-md text-gray-500 dark:text-gray-200">
         <div className="flex items-center gap-0.5">
           <Date />
           {createdDate}

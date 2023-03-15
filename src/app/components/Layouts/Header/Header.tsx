@@ -1,10 +1,12 @@
+import Close from "@/app/assets/icons/Close";
 import Menu from "@/app/assets/icons/Menu";
 import useResponsive from "@/app/hooks/useResponsive";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
-import SubscribeButton from "../../Button/SubscribeButton";
-
+import SubscribeButton from "@/app/components/Button/SubscribeButton";
+import Lottie from "@/app/components/Lottie/Lottie";
+import LottieData from "@/app/assets/icons/kun.json";
 import HeaderSearch from "./HeaderSearch";
 
 type Menu = {
@@ -38,7 +40,9 @@ const Header = () => {
 
   return (
     <div className="w-full h-14 flex items-center justify-between sm:p-12 px-5 py-8 sm:mb-0 mb-8">
-      <div className="header-logo">logo</div>
+      <div className="header-logo">
+        <Lottie src={LottieData} />
+      </div>
       {!isMobile ? (
         <div className="header-menu flex justify-end w-2/5 space-x-2">
           {menus.map(({ path, label }) => (
@@ -74,29 +78,46 @@ const Header = () => {
               <Menu />
             </button>
             {isOpenMobileMenu ? (
-              <div className="flex flex-col inset-0 p-5 header-layer w-full h-full bg-bg-dark fixed top-0 left-0 z-50">
-                <div className="header flex justify-between items-center mb-[30px]">
-                  <div className="logo">logo</div>
-                  <button
-                    className="logo"
-                    onClick={() => setIsOpenMobileMenu(false)}
-                  >
-                    X
-                  </button>
-                </div>
-                <div className="menus-mobile flex flex-col gap-1">
-                  {menus.map(({ label, path }) => (
-                    <Link
-                      href={path}
-                      key={path}
+              <div className="flex flex-col justify-between inset-0 p-5 header-layer w-full h-full dark:bg-bg-dark  bg-white fixed top-0 left-0 z-50">
+                <div className="">
+                  <div className="header flex justify-between items-center mb-[30px]">
+                    <div className="logo">
+                      <Lottie src={LottieData} />
+                    </div>
+                    <button
+                      className="logo"
                       onClick={() => setIsOpenMobileMenu(false)}
                     >
-                      <div className="menu-mobile">{label}</div>
-                    </Link>
-                  ))}
+                      <Close />
+                    </button>
+                  </div>
+                  <div className="menus-mobile flex flex-col">
+                    {menus.map(({ label, path }) => (
+                      <Link
+                        href={path}
+                        key={path}
+                        onClick={() => setIsOpenMobileMenu(false)}
+                      >
+                        <div className="menu-mobile border-b py-1">{label}</div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="mt-[30px]">
+                    <SubscribeButton />
+                  </div>
                 </div>
-                <div className="mt-[30px]">
-                  <SubscribeButton />
+                <div className="switch justify-self-center place-items-end">
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value={theme}
+                      className="sr-only peer"
+                      onChange={() =>
+                        setTheme(theme === "dark" ? "light" : "dark")
+                      }
+                    />
+                    <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  </label>
                 </div>
               </div>
             ) : null}

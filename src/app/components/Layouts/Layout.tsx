@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import GoogleAd from "../Ads/GoogleAd";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 type Props = {
   children: ReactNode;
@@ -17,6 +18,12 @@ const Layout = ({ children }: Props) => {
           googleAdId="ca-pub-5749665502208213"
           slot="2268403632"
           timeout={0}
+        />
+      </div>
+      <div className="messenger">
+        <MessengerCustomerChat
+          pageId="133971788516492"
+          appId="331098462266997"
         />
       </div>
       <Footer />
