@@ -10,6 +10,8 @@ type CarouselProps = {
   type?: "category" | "brand";
   slidesToShow?: number;
   arrows?: boolean;
+  centerMode?: boolean;
+  centerPadding?: string;
 };
 
 const StyledCarousel = styled.div`
@@ -22,7 +24,7 @@ const StyledCarousel = styled.div`
   }
   .slick-list {
     overflow: hidden;
-    height: 160px;
+    /* height: 160px; */
   }
   .slick-slide > div {
     display: flex;
@@ -83,6 +85,8 @@ const Carousel = ({
   type = "category",
   slidesToShow,
   arrows,
+  centerMode,
+  centerPadding,
 }: CarouselProps) => {
   const { isMobile } = useResponsive();
   const settings: Settings = {
@@ -104,15 +108,15 @@ const Carousel = ({
         <RightArrow />
       </ArrowIconButton>
     ),
-    arrows: (arrows && !isMobile) ? true :false,
+    arrows: arrows && !isMobile ? true : false,
+    centerMode: centerMode ?? false,
+    centerPadding: centerPadding ?? "0px",
   };
 
   return (
     <StyledCarousel
       className={
-        type === "category"
-          ? "lg:w-3/4 h-32"
-          : "w-[98%] brand-carousel h-fit m-auto"
+        type === "category" ? "lg:w-3/4 h-32" : "w-[98%] brand-carousel h-fit m-auto"
       }
     >
       <Slider {...settings}>{children}</Slider>

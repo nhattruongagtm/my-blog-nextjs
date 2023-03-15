@@ -1,49 +1,44 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkHint from "remark-hint";
 import Pre from "@/app/components/Prev/Pre";
 import { IMarkdownProps } from "./interfaces";
 import styled from "styled-components";
+import remarkToc from "remark-toc";
 
 const Markdown = ({ children, width }: IMarkdownProps) => (
   <MarkdownContainer>
     <ReactMarkdown
       components={{
-        // code({ inline, className, children, ...props }) {
-        //   const match = /language-(\w+)/.exec(className || "");
+        code({ inline, className, children, ...props }) {
+          const match = /language-(\w+)/.exec(className || "");
 
-        //   return !inline && match ? (
-        //     <SyntaxHighlighter
-        //       language={match[1]}
-        //       PreTag={Pre}
-        //       style={dark}
-        //       customStyle={{ position: "relative", overflow: "auto" }}
-        //     >
-        //       {String(children).replace(/\n$/, "")}
-        //     </SyntaxHighlighter>
-        //   ) : (
-        //     <pre>
-        //       <code className={className} {...props}>
-        //         {children}
-        //       </code>
-        //     </pre>
-        //   );
-        // },
-        // h1: ({ children }) => (
-        //   <p className="text-lg text-red-700">{children}</p>
-        // ),
-        // h2: ({ children }) => (
-        //   <p className="text-lg text-red-700">{children}</p>
-        // ),
-        // h3: ({ children }) => (
-        //   <p className="text-lg text-red-700">{children}</p>
-        // ),
+          return !inline && match ? (
+            <SyntaxHighlighter
+              language={match[1]}
+              PreTag={Pre}
+              style={atomDark}
+              customStyle={{ position: "relative", overflow: "auto" }}
+            >
+              {String(children).replace(/\n$/, "")}
+            </SyntaxHighlighter>
+          ) : (
+            <pre>
+              <code className={className} {...props}>
+                {children}
+              </code>
+            </pre>
+          );
+        },
+        h1: ({ children }) => <h1>{children}</h1>,
+        h2: ({ children }) => <h2>{children}</h2>,
+        h3: ({ children }) => <h3 className="gradient">{children}</h3>,
       }}
-      remarkPlugins={[remarkGfm, remarkHint]}
+      remarkPlugins={[remarkGfm, remarkHint, remarkToc]}
       rehypePlugins={[rehypeRaw]}
     >
       {children}

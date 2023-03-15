@@ -51,14 +51,14 @@ const Pre = (props: PreProps) => {
 const StyledPre = styled.div`
   position: relative;
   background-color: "#0B2330";
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 5px;
   overflow: auto;
 `;
 
 const CopyButton = styled.button`
   position: absolute;
-  right: 10px;
+  right: 30px;
   top: 10px;
 `;
 

@@ -1,16 +1,14 @@
 import Mail from "@/app/assets/icons/Mail";
 import RightArrow from "@/app/assets/icons/RightArrow";
-import Search from "@/app/assets/icons/Search";
 import Twitter from "@/app/assets/icons/Twitter";
 import User from "@/app/assets/icons/User";
-import React from "react";
 
 type Props = {};
 
 const Footer = (props: Props) => {
   return (
     <div className="lg:p-14 p-5 rounded-3xl dark:border-border-dark lg:w-3/4 text-text-dark dark:bg-card-dark border m-auto">
-      <div className="footer-main lg:flex gap-10 mb-[70px]">
+      <div className="footer-main lg:flex gap-10 md:mb-[70px] mb-[40px]">
         <div className="text-text-dark sm:mb-0 mb-10">
           <p className="text-lg mb-1 dark:text-white h-[40px] font-bold">
             MyShop
@@ -102,7 +100,7 @@ const Footer = (props: Props) => {
           </button>
         </div>
       </div>
-      <div className="footer-media flex justify-between items-center text-14px">
+      <div className="footer-media flex flex-col md:flex-row gap-0.5 md:gap-0 justify-between items-center text-14px">
         <p className="">@Copyright by Truong Nhat Huynh</p>
         <div className="ft-media flex gap-1">
           <div className="media-item flex items-center cursor-pointer gap-[5px]">
