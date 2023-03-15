@@ -1,12 +1,12 @@
 import Clock from "@/app/assets/icons/Clock";
-import { ICard } from "@/app/components/Card/interfaces";
 import Image from "next/image";
+import { Post } from "./interfaces";
 
-type Props = {
-  post: ICard;
+type RecentPostProps = {
+  post: Post;
 };
 
-const RecentPost = ({ post: { id, link, name, thumbnail } }: Props) => {
+const RecentPost = ({ post: { } }: RecentPostProps) => {
   return (
     <div className="md:flex md:h-[200px] lg:mb-[30px] mb-[50px] gap-2 items-center">
       <div className="image rounded-lg overflow-hidden h-[200px] flex-grow w-full">

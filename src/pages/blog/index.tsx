@@ -14,7 +14,7 @@ const Blog = ({ posts }: Props) => {
     <div className="blog-home  w-full lg:w-3/4 m-auto ">
       <HomeBanner />
       <TopPosts posts={posts}/>
-      <RecentPosts />
+      <RecentPosts posts={posts}/>
     </div>
   );
 };

@@ -1,12 +1,11 @@
 import Image from "next/image";
-import React from "react";
-import { ICard } from "../Card/interfaces";
+import { Post } from "../Posts/interfaces";
 
 type RecentPostListItemProps = {
-  post: ICard;
+  post: Post;
 };
 const RecentPostListItem = ({
-  post: { id, link, name, thumbnail },
+  post: { },
 }: RecentPostListItemProps) => {
   return (
     <div className="py-4 gap-1 flex hover:cursor-pointer items-center">
