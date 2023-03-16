@@ -1,10 +1,8 @@
-import React from "react";
-import fs from "fs";
-import matter from "gray-matter";
-import { Post } from "@/app/components/Posts/interfaces";
 import Markdown from "@/app/components/Markdown/Markdown";
 import BlogHeader from "@/app/components/Posts/BlogHeader";
-import Actions from "@/app/components/Posts/Actions";
+import { Post } from "@/app/components/Posts/interfaces";
+import fs from "fs";
+import matter from "gray-matter";
 
 type Props = {
   post: Post;

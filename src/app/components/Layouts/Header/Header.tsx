@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useState } from "react";
 import SubscribeButton from "@/app/components/Button/SubscribeButton";
-import Lottie from "@/app/components/Lottie/Lottie";
 import LottieData from "@/app/assets/icons/kun.json";
 import HeaderSearch from "./HeaderSearch";
 
@@ -40,9 +39,7 @@ const Header = () => {
 
   return (
     <div className="w-full h-14 flex items-center justify-between sm:p-12 px-5 py-8 sm:mb-0 mb-8">
-      <div className="header-logo">
-        <Lottie src={LottieData} />
-      </div>
+      <div className="header-logo">logo</div>
       {!isMobile ? (
         <div className="header-menu flex justify-end w-2/5 space-x-2">
           {menus.map(({ path, label }) => (
@@ -81,9 +78,7 @@ const Header = () => {
               <div className="flex flex-col justify-between inset-0 p-5 header-layer w-full h-full dark:bg-bg-dark  bg-white fixed top-0 left-0 z-50">
                 <div className="">
                   <div className="header flex justify-between items-center mb-[30px]">
-                    <div className="logo">
-                      <Lottie src={LottieData} />
-                    </div>
+                    <div className="logo">logo</div>
                     <button
                       className="logo"
                       onClick={() => setIsOpenMobileMenu(false)}
