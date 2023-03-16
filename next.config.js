@@ -21,15 +21,15 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/blog",
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/blog",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs'
