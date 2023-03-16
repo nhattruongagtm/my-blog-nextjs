@@ -11,7 +11,7 @@ type Props = {
 
 const Blog = ({ posts }: Props) => {
   return (
-    <div className="blog-home  w-full lg:w-3/4 m-auto ">
+    <div className="blog-home w-full lg:w-3/4 m-auto">
       <HomeBanner />
       <TopPosts posts={posts}/>
       <RecentPosts posts={posts}/>
