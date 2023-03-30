@@ -26,7 +26,7 @@ const Product = ({ product: { linkName, image, link } }: ProductProps) => {
             <span>3 mins read</span>
             </p>
           </div> */}
-        <p className="cart-title mt-[15px] mb-0.5 text-vsm dark:text-white line-clamp-2">
+        <p className="cart-title mt-[15px] mb-0.5 text-vsm dark:text-white line-clamp-2 h-[37px]">
           {linkName}
         </p>
       </div>
