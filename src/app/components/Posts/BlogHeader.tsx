@@ -1,7 +1,6 @@
 import Clock from "@/app/assets/icons/Clock";
 import Date from "@/app/assets/icons/Date";
-import useResponsive from "@/app/hooks/useResponsive";
-import React from "react";
+import Eye from "@/app/assets/icons/Eye";
 import GradientText from "../Typography/GradientText";
 
 type BlogHeaderProps = {
@@ -10,17 +9,20 @@ type BlogHeaderProps = {
 
 const BlogHeader = ({ frontmatter }: BlogHeaderProps) => {
   const { title, createdDate, readingTime, tags } = frontmatter;
-  const { isMobile } = useResponsive();
 
   return (
-    <div className="pb-4 mb-10 border-b-2">
-      <div className="blog-title">
-        <GradientText fontSize={10}>{title}</GradientText>
+    <div className="pb-8 mb-[80px] border-b-2">
+      <div className="blog-title mb-[40px]">
+        <GradientText fontSize={5}>{title}</GradientText>
       </div>
-      <div className="info flex md:gap-16  gap-1 text-md text-gray-500 dark:text-gray-200">
+      <div className="info flex md:gap-16  gap-1 text-md text-gray-500 dark:text-gray-200 flex-wrap">
         <div className="flex items-center gap-0.5">
           <Date />
           {createdDate}
+        </div>
+        <div className="flex items-center gap-0.5">
+          <Eye />
+          <span>12.4k</span>
         </div>
         <div className="flex items-center gap-0.5">
           <Clock />

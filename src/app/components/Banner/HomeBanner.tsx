@@ -7,11 +7,11 @@ import Image from "next/image";
 const HomeBanner = () => {
   const { isMobile } = useResponsive();
   return (
-    <div className="banner-main">
+    <div className="banner-main" id="banner-main">
       <div className="w-full h-[400px flex justify-between items-center py-[40px]">
         <div className="introduction flex-col justify-center items-center h-fit">
           <p className="">Hello erveryone!</p>
-          <p className="text-[30px] my-1">I&apos;m Truong</p>
+          <p className="text-[30px] my-1 font-semibold">I&apos;m Truong</p>
           <p className="max-w-[400px]">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est
             laboriosam quis perferendis labore molestias debitis delectus
@@ -42,7 +42,7 @@ const HomeBanner = () => {
         <div className="category lg:flex items-center p-4 border dark:border-border-dark rounded-lg dark:bg-card-dark justify-between shadow-md">
           <div className="category-info w-64 h-full">
             <p className="text-[25px] mb-1 font-[500]">Hot topics</p>
-            <p className="text-vsm mb-1">
+            <p className="text-sm mb-1">
               Don&rsquo;t miss out on the latest news about Travel tips, Hotel
               reviews and Food guide...
             </p>

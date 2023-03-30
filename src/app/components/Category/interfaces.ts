@@ -3,4 +3,5 @@ export interface Category {
   name: string;
   link: string;
   thumbnail: string;
+  path?: string
 }

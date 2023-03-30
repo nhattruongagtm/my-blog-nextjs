@@ -1,8 +1,12 @@
+import CommentForm from "@/app/components/Comment/CommentForm";
+import CommentList from "@/app/components/Comment/CommentList";
+import Comments from "@/app/components/Comment/Comments";
 import Markdown from "@/app/components/Markdown/Markdown";
 import BlogHeader from "@/app/components/Posts/BlogHeader";
 import { Post } from "@/app/components/Posts/interfaces";
 import fs from "fs";
 import matter from "gray-matter";
+import Head from "next/head";
 
 type Props = {
   post: Post;
@@ -10,11 +14,21 @@ type Props = {
 
 const DetailPost = ({ post }: Props) => {
   const { content, frontmatter } = post;
+  const { title } = frontmatter;
   return (
-    <div className="m-auto prose prose-sky prose-xl dark:prose-invert relative">
-      <BlogHeader frontmatter={frontmatter} />
-      <Markdown>{content}</Markdown>
-      {/* <Actions /> */}
+    <div className="">
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={`${title} content`} />
+        <meta property="og:title" content={`${title} content`} />
+      </Head>
+      <div className="m-auto relative mardown prose prose-sky prose-2xl dark:prose-invert">
+        <BlogHeader frontmatter={frontmatter} />
+      </div>
+      <div className="m-auto relative mardown prose prose-sky prose-xl dark:prose-invert">
+        <Markdown>{content}</Markdown>
+      </div>
+      <Comments />
     </div>
   );
 };

@@ -1,23 +1,21 @@
-import Clock from "@/app/assets/icons/Clock";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { Product } from "./interfaces";
 
 type ProductProps = {
   product: Product;
 };
 
-const Product = ({ product: { link, name, thumbnail } }: ProductProps) => {
+const Product = ({ product: { linkName, image, link } }: ProductProps) => {
   return (
     <div className="sm:p-5 p-4 rounded-xl hover:border-gray-100 hover:shadow-lg bg-white dark:bg-card-dark sm:h-72 h-fit dark:text-card-text-dark border dark:border-border-dark hover:cursor-pointer dark:hover:border-border-dark-h hover:transition-all hover:-mt-0.5">
-      <div className="card-media w-full md:h-2/3 h-1/2 overflow-hidden rounded-lg mb-0.5 flex items-center">
+      <div className="card-media w-full h-2/3 overflow-hidden rounded-lg mb-0.5 flex items-center">
         <Image
           width={450}
           height={200}
           alt="c-media"
           className="scale-150"
-          src={thumbnail}
+          src={image}
         />
       </div>
       <div className="card-info">
@@ -29,7 +27,7 @@ const Product = ({ product: { link, name, thumbnail } }: ProductProps) => {
             </p>
           </div> */}
         <p className="cart-title mt-[15px] mb-0.5 text-vsm dark:text-white line-clamp-2">
-          {name}
+          {linkName}
         </p>
       </div>
       <div className="card-action flex justify-center">

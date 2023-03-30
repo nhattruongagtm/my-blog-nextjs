@@ -7,10 +7,10 @@ type Props = {
   category: Category;
 };
 
-const CategoryItem = ({ category: { link, name, thumbnail } }: Props) => {
+const CategoryItem = ({ category: { link, name, thumbnail, path } }: Props) => {
   return (
     <div className="h-40 cursor-pointer rounded-lg overflow-hidden relative bg-white">
-      <Link href={link}>
+      <Link href={`/shop/${path}` ?? ""}>
         <Image
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
           width={600}

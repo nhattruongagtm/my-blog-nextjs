@@ -29,10 +29,9 @@ const StyledCarousel = styled.div`
   .slick-slide > div {
     display: flex;
     gap: 12px;
-    margin-bottom: 24px;
-    &:last-child {
-      margin-bottom: 24px;
-    }
+  }
+  .slick-slide > div > div {
+    width: 100%;
   }
   .slick-dots {
     display: flex !important;
@@ -43,7 +42,7 @@ const StyledCarousel = styled.div`
   .slick-prev {
     position: absolute;
     left: -220px;
-    bottom: 0;
+    bottom: -5px;
     cursor: pointer;
     /* min-width: 35px;
     height: 35px;
@@ -56,7 +55,7 @@ const StyledCarousel = styled.div`
   .slick-next {
     position: absolute;
     left: -180px;
-    bottom: 0;
+    bottom: -5px;
     cursor: pointer;
   }
   &.brand-carousel {
@@ -116,7 +115,9 @@ const Carousel = ({
   return (
     <StyledCarousel
       className={
-        type === "category" ? "lg:w-3/4 h-32" : "w-[98%] brand-carousel h-fit m-auto"
+        type === "category"
+          ? "lg:w-3/4 h-32"
+          : "w-[98%] brand-carousel h-fit m-auto"
       }
     >
       <Slider {...settings}>{children}</Slider>

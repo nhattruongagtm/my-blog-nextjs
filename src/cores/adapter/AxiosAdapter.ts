@@ -1,8 +1,7 @@
 import axios, {
-  AxiosHeaders,
   AxiosInstance,
   AxiosRequestConfig,
-  AxiosRequestHeaders,
+  AxiosRequestHeaders
 } from "axios";
 import { HttpClient, PlainObject, ResponseHttp } from "../port/HttpClient";
 

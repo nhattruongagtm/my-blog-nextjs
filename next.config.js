@@ -16,6 +16,8 @@ const nextConfig = {
       "images.unsplash.com",
       "media.istockphoto.com",
       "plus.unsplash.com",
+      "directenglishsaigon.edu.vn",
+      "m.media-amazon.com",
     ],
   },
   compiler: {

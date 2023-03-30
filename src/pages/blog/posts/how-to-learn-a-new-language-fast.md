@@ -33,10 +33,10 @@ Research shows that people who set the right kind of goals are more likely to ac
 
 Use these guidelines to get the most from your goals:
 
-- <strong>Set short-term goals. </strong> It’s good to have an ultimate goal—the thing you eventually hope to achieve. But long-term goals are too overwhelming to motivate you on an everyday basis. Break down your ultimate goal into smaller bits, and set smaller goals for each week or month.
-- <strong>Challenge yourself (but not too much).</strong> Goals work best when they make you push yourself. If they’re too daunting, they can actually discourage you.
-- <strong>Focus on specific, tangible outcomes.</strong> Set detailed goals, and focus on what you plan to learn rather than how much time you plan to study. An example of a good goal might be, “This week I’m going to learn 30 Spanish vocabulary words related to shopping.”
-- <strong>Write down your goals.</strong> Writing down goals helps you commit to them. Post your goals in a prominent place, like your bathroom mirror or the home screen of your smartphone.
+- **Set short-term goals.** It’s good to have an ultimate goal—the thing you eventually hope to achieve. But long-term goals are too overwhelming to motivate you on an everyday basis. Break down your ultimate goal into smaller bits, and set smaller goals for each week or month.
+- **Challenge yourself (but not too much).** Goals work best when they make you push yourself. If they’re too daunting, they can actually discourage you.
+- **Focus on specific, tangible outcomes.** Set detailed goals, and focus on what you plan to learn rather than how much time you plan to study. An example of a good goal might be, “This week I’m going to learn 30 Spanish vocabulary words related to shopping.”
+- **Write down your goals.** Writing down goals helps you commit to them. Post your goals in a prominent place, like your bathroom mirror or the home screen of your smartphone.
 
 ### 2. Learn the “right” words
 

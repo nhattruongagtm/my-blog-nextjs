@@ -1,16 +1,33 @@
 import Close from "@/app/assets/icons/Close";
 import Menu from "@/app/assets/icons/Menu";
+import SubscribeButton from "@/app/components/Button/SubscribeButton";
 import useResponsive from "@/app/hooks/useResponsive";
 import { useTheme } from "next-themes";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import { useState } from "react";
-import SubscribeButton from "@/app/components/Button/SubscribeButton";
-import LottieData from "@/app/assets/icons/kun.json";
 import HeaderSearch from "./HeaderSearch";
+import { useRouter } from "next/router";
 
 type Menu = {
   path: string;
   label: string;
+};
+
+type NavLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  exact: boolean;
+} & any;
+
+const NavLink = ({ children, href, exact, ...props }: NavLinkProps) => {
+  const { pathname } = useRouter();
+  const isActive = exact ? pathname === href : pathname.startsWith(href);
+
+  return (
+    <Link href={href} {...props} className={isActive ? "active" : ""}>
+      {children}
+    </Link>
+  );
 };
 
 const Header = () => {
@@ -43,11 +60,11 @@ const Header = () => {
       {!isMobile ? (
         <div className="header-menu flex justify-end w-2/5 space-x-2">
           {menus.map(({ path, label }) => (
-            <Link href={path} key={path}>
-              <button className="hover:text-blue-light hover:transition-all">
+            <NavLink href={path} key={path}>
+              <button className="hover:text-blue-light hover:transition-all text-[18px]">
                 {label}
               </button>
-            </Link>
+            </NavLink>
           ))}
         </div>
       ) : null}
@@ -88,13 +105,13 @@ const Header = () => {
                   </div>
                   <div className="menus-mobile flex flex-col">
                     {menus.map(({ label, path }) => (
-                      <Link
+                      <NavLink
                         href={path}
                         key={path}
                         onClick={() => setIsOpenMobileMenu(false)}
                       >
                         <div className="menu-mobile border-b py-1">{label}</div>
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                   <div className="mt-[30px]">

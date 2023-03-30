@@ -1,8 +1,10 @@
 import { Category } from "../Category/interfaces";
 
 export interface Product extends Category {
-  tags?: string[];
-  title?: string;
-  createdDate?: string;
-  readingTime?: number;
+  linkId: string;
+  link: string;
+  linkName: string;
+  image: string;
+  linkType: string;
+  groupIds: string[];
 }

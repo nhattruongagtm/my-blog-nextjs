@@ -12,7 +12,7 @@ const Card = ({ product: { frontmatter, slug } }: ProductProps) => {
   const { title, thumbnail, tags, createdDate, readingTime } =
     frontmatter as ICard;
   return (
-    <div className="flex gap-3 sm:p-5 p-4 rounded-xl hover:border-gray-100 hover:shadow-lg bg-white dark:bg-card-dark dark:text-card-text-dark border dark:border-border-dark hover:cursor-pointer dark:hover:border-border-dark-h hover:transition-all flex-col justify-between w-full">
+    <div className="card overflow-hidden relative flex gap-3 sm:p-5 p-4 rounded-xl hover:border-gray-100 hover:shadow-lg bg-white dark:bg-card-dark dark:text-card-text-dark border dark:border-border-dark hover:cursor-pointer dark:hover:border-border-dark-h hover:transition-all flex-col justify-between w-full">
       <div className="relative card-media w-full h-[200px] overflow-hidden rounded-lg mb-0.5 flex items-center">
         <Image
           alt="c-media"
@@ -22,8 +22,9 @@ const Card = ({ product: { frontmatter, slug } }: ProductProps) => {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div className="layer absolute top-0 left-0 w-full h-full bg-black opacity-25"></div>
+       
       </div>
-      <div className="card-info">
+      <div className="card-info h-1/4">
         <div className="card-read-time flex justify-between text-gray-500">
           {tags.length > 3
             ? tags.slice(0, 3).map((tag, index) => (
@@ -43,7 +44,7 @@ const Card = ({ product: { frontmatter, slug } }: ProductProps) => {
             </span>
           </p>
         </div>
-        <p className="cart-title mt-[15px] mb-0.5 text-vsm dark:text-white line-clamp-2">
+        <p className="cart-title mt-[15px] mb-0.5 text-[18px] h-1/2 dark:text-white line-clamp-2 font-semibold">
           {title}
         </p>
       </div>
@@ -69,6 +70,7 @@ const Card = ({ product: { frontmatter, slug } }: ProductProps) => {
           </button>
         </Link>
       </div>
+      {/* <div className="card -layer absolute top-0 left-0 w-1/5 h-[800px] bg-white opacity-5"></div> */}
     </div>
   );
 };

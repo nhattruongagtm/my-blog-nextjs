@@ -31,8 +31,8 @@ module.exports = {
       transparent: "transparent",
     },
     fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      // sans: ["Graphik", "sans-serif"],
+      // serif: ["Merriweather", "serif"],
     },
     fontSize: {
       vsm: "13px",
@@ -59,6 +59,18 @@ module.exports = {
         full: "9999px",
       },
       keyframes: {
+        display: {
+          "0%": {
+            transform: "translateY(100px)",
+            visibility: "hidden",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0%)",
+            visibility: "visible",
+            opacity: 1,
+          },
+        },
         showSearchInput: {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(0%)" },
@@ -84,6 +96,7 @@ module.exports = {
         showSearchInput: "showSearchInput 0.5s",
         closeSearchInput: "closeSearchInput 0s forwards",
         visible: "visible 0.2s forwards",
+        display: "display 0.3s forwards",
       },
     },
   },
