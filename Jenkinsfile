@@ -1,8 +1,8 @@
 pipeline {
     agent any
     stages {
-        steps {
-            stage('Clone') {
+        stage('Clone') {
+            steps {
                 git 'https://github.com/nhattruongagtm/my-blog-nextjs.git'
             }
         }
