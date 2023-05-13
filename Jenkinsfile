@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/nhattruongagtm/my-blog-nextjs.git'
+                git url: 'https://github.com/nhattruongagtm/my-blog-nextjs.git', branch: 'main'
             }
         }
     }
