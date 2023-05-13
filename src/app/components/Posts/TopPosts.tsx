@@ -11,7 +11,7 @@ type TopPostsProps = {
 const TopPosts = ({ posts }: TopPostsProps) => {
   const { isMobile } = useResponsive();
   return (
-    <div className="newest my-[30px] min-h-[400px]" id="newest">
+    <div className="newesst my-[30px] min-h-[400px]" id="neswest">
       <div className="posts-title my-[50px]">
         <GradientText fontSize={30}>Newest Posts</GradientText>
       </div>

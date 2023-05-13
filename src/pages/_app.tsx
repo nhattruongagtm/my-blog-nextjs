@@ -8,6 +8,8 @@ import MoveTop from "@/app/components/MoveTop/MoveTop";
 import "reflect-metadata";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "@/app/apollo-client/client";
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
 
 const popins = Nunito_Sans({
   weight: ["400", "700"],
@@ -15,8 +17,18 @@ const popins = Nunito_Sans({
   subsets: ["latin"],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const queryClient = new QueryClient();
+
+  const getLayout = Component.getLayout ?? ((page: JSX.Element) => page);
 
   return (
     <main className={popins.className}>
@@ -24,9 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           <ThemeProvider attribute="class">
             <MoveTop>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
+              <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
             </MoveTop>
           </ThemeProvider>
         </QueryClientProvider>

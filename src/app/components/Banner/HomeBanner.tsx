@@ -7,7 +7,7 @@ import Image from "next/image";
 const HomeBanner = () => {
   const { isMobile } = useResponsive();
   return (
-    <div className="banner-main" id="banner-main">
+    <div className="bannesr-main" id="bannser-main">
       <div className="w-full h-[400px flex justify-between items-center py-[40px]">
         <div className="introduction flex-col justify-center items-center h-fit">
           <p className="">Hello erveryone!</p>

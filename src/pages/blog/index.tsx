@@ -16,22 +16,26 @@ type Props = {
 };
 
 const Blog = ({ posts }: Props) => {
+  const handleMoveTop = () => {
+    const pos = window.scrollY;
+    if (pos > 550) {
+      const newest = document.querySelector("#newest");
+      newest?.classList.add("display");
+    }
+  };
   useEffect(() => {
     const banner = document.querySelector("#banner-main");
     banner?.classList.add("display");
 
-    document.addEventListener("scroll", (e) => {
-      const pos = window.scrollY;
-      if (pos > 550) {
-        const newest = document.querySelector("#newest");
-        newest?.classList.add("display");
-      }
-    });
+    document.addEventListener("scroll", handleMoveTop);
+
+    return () => {
+      document.removeEventListener("scroll", handleMoveTop);
+    };
   }, []);
 
   useEffect(() => {
     const ninja = container.get<Warrior>(TYPES.Warrior);
-    console.log(ninja.fight());
   }, []);
 
   return (
