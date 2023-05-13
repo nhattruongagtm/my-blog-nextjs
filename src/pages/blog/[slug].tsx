@@ -1,5 +1,3 @@
-import CommentForm from "@/app/components/Comment/CommentForm";
-import CommentList from "@/app/components/Comment/CommentList";
 import Comments from "@/app/components/Comment/Comments";
 import Markdown from "@/app/components/Markdown/Markdown";
 import BlogHeader from "@/app/components/Posts/BlogHeader";
