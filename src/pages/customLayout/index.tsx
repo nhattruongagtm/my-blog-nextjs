@@ -12,3 +12,5 @@ CustomLayout.getLayout = function getLayout(page: JSX.Element) {
 };
 
 export default CustomLayout;
+
+// 11716799a218a11d2c42fe8de48fb0a49d
